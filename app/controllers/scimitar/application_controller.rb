@@ -5,7 +5,8 @@ module Scimitar
     rescue_from ActionDispatch::Http::Parameters::ParseError, with: :handle_bad_json_error # Via "ActionDispatch::Request.parameter_parsers" block in lib/scimitar/engine.rb
     rescue_from Scimitar::ErrorResponse,                      with: :handle_scim_error
 
-    before_action :require_scim
+    # before_action :require_scim
+    # Until this get resolved https://github.com/MicrosoftDocs/azure-docs/issues/94189
     before_action :add_mandatory_response_headers
     before_action :authenticate
 
